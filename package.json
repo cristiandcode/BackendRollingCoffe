@@ -2,12 +2,16 @@
   "name": "backendrollingcoffe",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start":"node index.js",
-    "dev": "node --watch index.js"
+    "start": "node index.js",
+    "dev": "node --env-file .env --watch index.js"
   },
   "keywords": [],
   "author": "Diaz Cristian",
   "license": "ISC",
-  "description": "Backend de rolling coffee"
+  "description": "Backend de rolling coffee",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
