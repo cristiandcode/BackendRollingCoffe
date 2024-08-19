@@ -23,5 +23,5 @@ app.use(express.urlencoded({extended:true}));
 app.get("/prueba",(req, res)=>{
 console.log("prueba de solicitud get")
 //enviar una respuesta
-res.send("desde mi backend de rolling cofee")
+res.send("desde mi backend de rolling coffee")
 })
