@@ -8,6 +8,6 @@ export const listarProductos = (req, res)=>{
 export const crearProducto = (req, res)=>{
 //Validar los datos del producto -- Estos datos vienen del body
 //le vamos a pedir a la base de datos crear el producto
+console.log(req.body);
 //enviar la respuesta de lo sucedido, si funcionó o falló
-
-    }
+};
