@@ -19,17 +19,41 @@ export const obtenerProducto = async (req, res) => {
     //pedir a la base de datos buscar ese producto
     const productoBuscado = await Producto.findById(req.params.id);
     //quiero saber si productoBuscado es null
-    if(productoBuscado === null){
-     return res.status(400).json( {mensaje:  `El producto con id ${req.params.id} no existe `});
+    if (productoBuscado === null) {
+      return res
+        .status(400)
+        .json({ mensaje: `El producto con id ${req.params.id} no existe ` });
     }
     //responder al front con el producto buscado
     res.status(200).json(productoBuscado);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrio un error al obtener el productos" });
+    res
+      .status(500)
+      .json({ mensaje: "Ocurrio un error al obtener el productos" });
   }
 };
 
+export const editarProducto = async (req, res) => {
+  try {
+    //necesito el id y el body
+    //validar los datos del body
+    //pedir a la BD editar el producto
+    const productoBuscado = await Producto.findById(req.params.id);
+    //quiero saber si productoBuscado es null
+    if (productoBuscado === null) {
+      return res.status(400).json({ mensaje: `El producto con id ${req.params.id} no existe ` });
+    }
+    await Producto.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    //responder al front con un codigo exitoso
+    res.status(200).json({mensaje: "El producto fue editado correctamente"})
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ mensaje: "Ocurrio un error al obtener el productos" });
+  }
+};
 
 export const crearProducto = async (req, res) => {
   try {
