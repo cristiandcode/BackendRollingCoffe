@@ -15,7 +15,6 @@ export const listarProductos = async (req, res) => {
 export const obtenerProducto = async (req, res) => {
   try {
     //Extraer el identificador unico o parametro del request
-    console.log(req.params.id);
     //pedir a la base de datos buscar ese producto
     const productoBuscado = await Producto.findById(req.params.id);
     //quiero saber si productoBuscado es null
@@ -59,7 +58,6 @@ export const crearProducto = async (req, res) => {
   try {
     //Validar los datos del producto -- Estos datos vienen del body
     //le vamos a pedir a la base de datos crear el producto
-    console.log(req.body);
     const productoNuevo = new Producto(req.body);
     await productoNuevo.save();
     //enviar la respuesta de lo sucedido, si funcionó o falló
