@@ -36,7 +36,13 @@ router
             );
           }
         }),
-
+        check("imagen")
+        .notEmpty()
+        .withMessage("La imagen es un dato obligatorio")
+        .matches(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)/)
+        .withMessage(
+          "La imagen debe ser una url valida y debe terminar en los isguientes formatos jpg|jpeg|gif|png"
+        ),
     ],
     crearProducto
   )
