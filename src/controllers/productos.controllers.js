@@ -33,7 +33,6 @@ export const obtenerProducto = async (req, res) => {
       .json({ mensaje: "Ocurrio un error al obtener el productos" });
   }
 };
-
 export const editarProducto = async (req, res) => {
   try {
     //necesito el id y el body
@@ -57,13 +56,6 @@ export const editarProducto = async (req, res) => {
 
 export const crearProducto = async (req, res) => {
   try {
-    //Validar los datos del producto del body -- Estos datos vienen del body
-    const errors = validationResult(req);
-    //Preguntar si hay errores y si falló usaremos isEmpty() que es un metodo de expressvalidator
-    if(!errors.isEmpty()){
-      return res.status(400).json({errores: errors.array() }) //este .array devuelve todos los errores detallados
-    }
-
     //le vamos a pedir a la base de datos crear el producto
     const productoNuevo = new Producto(req.body);
     await productoNuevo.save();
