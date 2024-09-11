@@ -5,7 +5,7 @@ import "./src/database/database.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import Productosrouter from "./src/routes/productos.routes.js";
-
+import usuarioRouter from "./src/routes/usuarios.routes.js";
 //1- pedir el puerto
 const app= express();
 //creamos una variable
@@ -34,3 +34,4 @@ app.use(express.static(path.join(__dirname, "/public")))
 // })
 
 app.use("/api", Productosrouter)
+app.use("/api/usuarios", usuarioRouter)
