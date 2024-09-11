@@ -50,7 +50,20 @@ router
         .withMessage(
           "La categoria debe ser una de las siguientes opciones: ('Infusiones', 'Batidos', 'Dulce', 'Salado', 'Sandwich') Corrobora que utilizaste bien las mayusculas"
         ),
-        
+        check("descripcion_breve")
+        .notEmpty()
+        .withMessage("La descripcion breve es un dato obligatorio")
+        .isLength({ min: 5, max: 100 })
+        .withMessage(
+          "La descripcion breve debe tener entre 5 y 100 caracteres"
+        ),
+      check("descripcion_amplia")
+        .notEmpty()
+        .withMessage("La descripcion amplia es un dato obligatorio")
+        .isLength({ min: 30, max: 500 })
+        .withMessage(
+          "La descripcion amplia debe tener entre 30 y 500 caracteres"
+        ),
     ],
     crearProducto
   )
