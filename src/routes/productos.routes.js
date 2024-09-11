@@ -43,6 +43,14 @@ router
         .withMessage(
           "La imagen debe ser una url valida y debe terminar en los isguientes formatos jpg|jpeg|gif|png"
         ),
+        check("categoria")
+        .notEmpty()
+        .withMessage("La categoria es un dato obligatorio")
+        .isIn(["Infusiones", "Batidos", "Dulce", "Salado", "Sandwich"])
+        .withMessage(
+          "La categoria debe ser una de las siguientes opciones: ('Infusiones', 'Batidos', 'Dulce', 'Salado', 'Sandwich') Corrobora que utilizaste bien las mayusculas"
+        ),
+        
     ],
     crearProducto
   )
